@@ -15,7 +15,7 @@ class User(db.Model):
     username = db.Column(db.String(30),unique=True,nullable=False)
     password = db.Column(db.String(50),nullable=False)
     email = db.Column(db.String(100),unique=True,nullable=False)
-    image_file = db.Column(db.String(50),default='default.jep')
+    image_file = db.Column(db.String(50),default='default.jpg')
     posts = db.relationship('Post',backref='author',lazy=True)
 
     def __repr__(self):
