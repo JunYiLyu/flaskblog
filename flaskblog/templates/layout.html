@@ -33,10 +33,18 @@
               <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a> <!--  call about() method  -->
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-              <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-            </div>
+            {% if current_user.is_authenticated %}
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Accout</a>
+              </div>
+            {% else %}
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+              </div>
+            {% endif %}
+
           </div>
         </div>
       </nav>
@@ -45,7 +53,7 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
-
+          <!--with 可以宣告變數-->
           {% with messages = get_flashed_messages(with_categories=true) %} <!--true代表有傳category參數-->
             {% if messages %}
              {% for category,message in messages %}  <!-- flash(message,category)  [success,message] -->
