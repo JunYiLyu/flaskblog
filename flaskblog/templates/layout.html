@@ -35,8 +35,9 @@
             <!-- Navbar Right Side -->
             {% if current_user.is_authenticated %}
               <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('create_post') }}">Post</a>
                 <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
-                <a class="nav-item nav-link" href="{{ url_for('account') }}">Accout</a>
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
               </div>
             {% else %}
               <div class="navbar-nav">

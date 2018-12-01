@@ -69,9 +69,10 @@
       <div class="form-group">
         {{ form.submit (class="btn btn-outline-info")}}
       </div>
+    </form>
+  </div>
+  <div class="border-top pt-3">
+    Already Have an account? <a class="ml-2" href="{{url_for('login')}}">Log In</a>
+  </div>
 
-      <div class="border-top pt-3">
-        Already Have an account? <a class="ml-2" href="{{url_for('login')}}">Log In</a>
-      </div>
-    </div>
 {% endblock content%}
